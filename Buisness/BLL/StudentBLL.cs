@@ -19,5 +19,16 @@ namespace Buisness.BLL
 		{
 			return StudenRepository.GetStudents();
 		}
+
+
+		public HoldDetails getHoldDetails(int id) 
+		{
+			return StudenRepository.HoldDetails(id);
+		}
+
+		public void AddStudentToHold(int studentId, int companyID)
+		{
+			StudenRepository.AddStudentToHold(studentId, companyID);
+		}
 	}
 }

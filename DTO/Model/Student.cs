@@ -18,7 +18,7 @@ namespace DTO.Model
 
 		public _StudieType StudieType { get; set; }
 
-		public Student(string navn, DateTime studieStart, int alder, int studentId, _StudieType studieType) 
+		public Student(string navn, DateTime studieStart, int alder, int studentId, _StudieType studieType)
 		{
 			_navn = navn;
 			_studieStart = studieStart;
@@ -43,5 +43,8 @@ namespace DTO.Model
 		private int _studentId;
 
 		public int StudentId { get { return _studentId; } set { _studentId = value; } }
+
 	}
+
 }
+

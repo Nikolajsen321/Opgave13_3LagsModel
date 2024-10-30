@@ -5,7 +5,8 @@
 
     <VerticalStackLayout>
       
-        <CollectionView x:Name="CollectionViewStudent">
+        <CollectionView x:Name="CollectionViewStudent" SelectionMode="Multiple" SelectionChanged="OnStudentSelectionChanged">
+           
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout Padding="20">
@@ -18,6 +19,14 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        
+        
+                    <VerticalStackLayout Padding="20">
+                        <Label x:Name="Hold" Text="{Binding Path=HoldNavn}"/>
+            <Label x:Name="HoldId" Text="{Binding Path=HoldId}"/>
+            <Button Text="Add Student til Hold" Command="{Binding Path=HoldId}" Clicked="AddStudentToHold"/>
+                    </VerticalStackLayout>
+            
       
             
         

@@ -16,5 +16,27 @@ namespace Dataacess.Mappers
 
 		}
 
+		public static DTO.Model.HoldDetails MapDetail(Hold hold)
+		{
+			DTO.Model.HoldDetails retur = new DTO.Model.HoldDetails();
+			retur.HoldNavn = hold.HoldNavn;
+			retur.HoldId = hold.HoldId;
+			retur.StudentsIHold = StudentMapper.Map(hold.StudentsIHold);
+			return retur;
+		}
+
+
+		public static List<DTO.Model.Student> Map(List<Student> students)
+		{
+			List<DTO.Model.Student> retur =new List<DTO.Model.Student>();
+            foreach (Student student in students )
+            {
+				retur.Add(StudentMapper.Map(student));
+                
+            }
+			return retur;
+        }
+		
+
 	}
 }

@@ -64,5 +64,38 @@ namespace Dataacess.Repositories
 
 
 		}
+
+
+
+		public static HoldDetails HoldDetails(int holdId)
+		{
+			using (StudentContext context = new StudentContext())
+			{
+				IQueryable<Model.Hold> hold = context.Holds.Where(h => h.HoldId == holdId).Include(c => c.StudentsIHold);
+				if (hold.Count() ==1)
+				{
+					HoldDetails holdDetails = StudentMapper.MapDetail(hold.First());
+					return holdDetails;
+
+				}
+				else
+				{
+					throw new ArgumentOutOfRangeException();
+				}
+			}
+		}
+
+		public static void AddStudentToHold(int studentId, int holdId) 
+		{
+			using(StudentContext context = new StudentContext())
+			{
+				Model.Student student = context.Students.Where(s=>s.StudentId == studentId).FirstOrDefault();
+				student.HoldId = holdId;
+				context.SaveChanges();
+			}
+		}
+		
+
 	}
+
 }

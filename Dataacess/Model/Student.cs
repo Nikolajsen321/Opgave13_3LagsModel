@@ -21,6 +21,7 @@ namespace Dataacess.Model
 
 		public int StudentId {get{ return _studentId; } set { _studentId = value; } }
 
+		public int? HoldId { get; set; }	
 
 		
 		public enum _StudieType

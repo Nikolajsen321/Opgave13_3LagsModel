@@ -32,7 +32,12 @@ namespace Dataacess.Context
 				new Student{Navn ="Hans",StudieStart=new DateTime(2021,10,12),Alder = 20, StudentId=-1, StudieType=Student._StudieType.Ungdomudannelse},
 				new Student{Navn ="Jens",StudieStart=new DateTime(2021,10,12),Alder = 20, StudentId=1, StudieType=Student._StudieType.Ungdomudannelse}
 			});
-			
+
+			modelBuilder.Entity<Hold>().HasData(new Hold[]
+			{
+				new Hold("Gym Z",1)
+
+			});
 		}
 
 		public DbSet<Student> Students { get; set; }
